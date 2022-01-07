@@ -20,4 +20,5 @@ func main() {
 	installGouse(ctx)
 	installGo(ctx)
 	installGoImports(ctx)
+	installPrettier(ctx)
 }
