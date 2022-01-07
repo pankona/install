@@ -27,5 +27,10 @@ chq() {
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# GITHUB_TOKEN from gh config file
+if [ -f ~/.config/gh/hosts.yml ]; then
+  export GITHUB_TOKEN=`cat ~/.config/gh/hosts.yml | grep oauth_token | cut -d':' -f2 | cut -b 2-`
+fi
+
 PATH="$HOME/bin:$HOME/go/bin:$PATH"
 
