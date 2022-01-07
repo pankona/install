@@ -1,9 +1,31 @@
-PATH="$HOME/bin:$HOME/go/bin:$PATH"
+export LANG="en_US.UTF-8"
+
+# simple PS1 indicator
+PS1='[\u \w]\$ '
+
+# bash into vim mode
+set -o vi
+
+# history configuration
+export HISTTIMEFORMAT='%F %T '
+export HISTCONTROL=ignoreboth:erasedups
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+
+# asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# git completion
+. $HOME/go/src/github.com/git/git/contrib/completion/git-completion.bash
+
+alias gst='git status'
 
 chq() {
   cd "$(ghq list -p | fzf)"
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+PATH="$HOME/bin:$HOME/go/bin:$PATH"
+

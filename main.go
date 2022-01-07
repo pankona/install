@@ -13,6 +13,7 @@ func main() {
 	installBuildEssential(ctx)
 	installToolsViaAsdf(ctx)
 	installBashrc(ctx)
+	installGit(ctx)
 	installGitConfig(ctx)
 	installGitHubCLI(ctx)
 	installDocker(ctx)
