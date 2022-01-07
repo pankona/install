@@ -1,7 +1,7 @@
 export LANG="en_US.UTF-8"
 
 # simple PS1 indicator
-PS1='[\u \w]\$ '
+PS1='\[\033[01;32m\]\u \[\033[01;34m\]\w\[\033[00m\] \$ '
 
 # bash into vim mode
 set -o vi
