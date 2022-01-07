@@ -31,6 +31,7 @@ Install some awesome tools on linux to make it development ready for me
   - docker compose 入れる
 - Go のインストール
   - なんとなく最新版を入れる
+  - goimports を入れる
 
 ## さらにメモ
 
@@ -44,6 +45,5 @@ Mac にインストールしたり Ubuntu にインストールしたり Alpine 
 MIT
 
 ## Author
-
 
 Yosuke Akatsuka (a.k.a pankona)
