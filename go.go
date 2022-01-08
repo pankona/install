@@ -20,7 +20,7 @@ func installGouse(ctx context.Context) {
 
 	ec.execCommand(ctx, currentDir, "ghq", "get", "pankona/gouse")
 
-	if err := os.MkdirAll(filepath.Join(homeDir(), "bin"), os.ModeDir); err != nil {
+	if err := os.MkdirAll(filepath.Join(homeDir(), "bin"), 0o755); err != nil {
 		log.Fatalf("failed to create directory %s: %v", filepath.Join(homeDir(), "bin"), err)
 	}
 
