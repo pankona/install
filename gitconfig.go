@@ -9,6 +9,7 @@ var gitConfigs = map[string]string{
 	"user.email":  "yosuke.akatsuka@gmail.com",
 	"user.name":   "pankona",
 	"core.editor": "vim",
+	"pull.ff":     "only",
 	"ghq.root":    "~/go/src",
 }
 
