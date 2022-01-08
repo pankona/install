@@ -7,11 +7,11 @@ import (
 func main() {
 	ctx := context.Background()
 	installAsdf(ctx)
+	installToolsViaAsdf(ctx)
 	installVim(ctx)
 	installVimrc(ctx)
 	installAg(ctx)
 	installBuildEssential(ctx)
-	installToolsViaAsdf(ctx)
 	installBashrc(ctx)
 	installGit(ctx)
 	installGitConfig(ctx)
