@@ -22,6 +22,7 @@ func installBashrc(ctx context.Context) {
 	cmd := exec.CommandContext(ctx, "grep", "mybashrc", filepath.Join(homeDir, ".bashrc"))
 	if err := cmd.Run(); err == nil {
 		// grep returned 0. It means .bashrc already includes mybashrc
+		log.Printf("It seems mybashrc is already installed. Skip.")
 		return
 	}
 

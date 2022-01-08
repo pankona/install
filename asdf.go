@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-const asdfVersion = "0.9.0"
+const asdfVersion = "v0.9.0"
 
 func installAsdf(ctx context.Context) {
 	asdfInstallDir := filepath.Join(homeDir(), ".asdf")
@@ -16,6 +16,7 @@ func installAsdf(ctx context.Context) {
 		log.Printf("It seems asdf is already installed since " + asdfInstallDir + " directory exists. skip.")
 		return
 	}
+
 	ec := errContainer{}
 	ec.execCommand(ctx, currentDir,
 		"git", "clone", "https://github.com/asdf-vm/asdf.git", asdfInstallDir, "--branch", asdfVersion)
@@ -38,7 +39,6 @@ func installToolsViaAsdf(ctx context.Context) {
 		{name: "yarn", version: "latest"},
 		{name: "ghq", version: "latest"},
 	}
-
 	ec := errContainer{}
 	for _, tool := range tools {
 		ec.execCommand(ctx, currentDir, "asdf", "plugin-add", tool.name)
