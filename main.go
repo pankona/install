@@ -6,10 +6,10 @@ import (
 
 func main() {
 	ctx := context.Background()
+	installAsdf(ctx)
 	installVim(ctx)
 	installVimrc(ctx)
 	installAg(ctx)
-	installAsdf(ctx)
 	installBuildEssential(ctx)
 	installToolsViaAsdf(ctx)
 	installBashrc(ctx)
