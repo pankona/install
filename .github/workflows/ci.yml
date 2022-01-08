@@ -12,8 +12,8 @@ jobs:
           go-version: "^1.17.6"
       - run: go build
       - run: |
-          ./install asdf
-          ./install bashrc
+          ./install -asdf
+          ./install -bashrc
           source ~/.bashrc
-          ./install all
+          ./install -all
 
