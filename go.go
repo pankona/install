@@ -27,7 +27,7 @@ func installGouse(ctx context.Context) {
 	if err := os.Symlink(
 		filepath.Join(homeDir(), "go", "src", "github.com", "pankona", "gouse", "gouse"),
 		filepath.Join(homeDir(), "bin", "gouse")); err != nil {
-		log.Fatal(ec.err)
+		log.Fatalf("failed to create symbolic link for gouse: %v", err)
 	}
 
 	log.Printf("installing gouse succeeded")

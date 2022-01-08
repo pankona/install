@@ -19,6 +19,9 @@ func main() {
 		installAsdf(ctx)
 		installBashrc(ctx)
 		installToolsViaAsdf(ctx)
+		installGouse(ctx)
+		installGo(ctx)
+		installGoImports(ctx)
 		installGit(ctx)
 		installGitConfig(ctx)
 		installVim(ctx)
@@ -28,11 +31,7 @@ func main() {
 		installGitHubCLI(ctx)
 		installDocker(ctx)
 		installDockerCompose(ctx)
-		installGouse(ctx)
-		installGo(ctx)
-		installGoImports(ctx)
 		installPrettier(ctx)
-		installBashrc(ctx)
 	case *asdf:
 		installAsdf(ctx)
 	case *bashrc:
