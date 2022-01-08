@@ -14,6 +14,6 @@ jobs:
       - run: |
           ./install -asdf
           ./install -bashrc
-          source ~/.bashrc
+          source ~/mybashrc
           ./install -all
 
