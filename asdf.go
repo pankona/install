@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-const asdfVersion = "0.9.0"
+const asdfVersion = "v0.9.0"
 
 func installAsdf(ctx context.Context) {
 	asdfInstallDir := filepath.Join(homeDir(), ".asdf")
