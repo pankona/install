@@ -12,20 +12,21 @@ const goVersion = "1.17.6"
 func installGouse(ctx context.Context) {
 	ec := errContainer{}
 
+	_, err := os.Stat(filepath.Join(homeDir(), "bin", "gouse"))
+	if err == nil {
+		log.Printf("It seems gouse is already installed. skip.")
+		return
+	}
+
 	ec.execCommand(ctx, currentDir, "ghq", "get", "pankona/gouse")
-	ec.err = nil // ignore if already exists
+
 	if err := os.MkdirAll(filepath.Join(homeDir(), "bin"), os.ModeDir); err != nil {
 		log.Fatalf("failed to create directory %s: %v", filepath.Join(homeDir(), "bin"), err)
 	}
-	if err := os.RemoveAll(filepath.Join(homeDir(), "bin", "gouse")); err != nil {
-		log.Fatalf("failed to remove %s: %v", filepath.Join(homeDir(), "bin", "gouse"), err)
-	}
-	ec.execCommand(ctx, currentDir, "ln", "-s",
-		filepath.Join(homeDir(), "go", "src", "github.com", "pankona", "gouse", "gouse"),
-		filepath.Join(homeDir(), "bin", "gouse"),
-	)
 
-	if ec.err != nil {
+	if err := os.Symlink(
+		filepath.Join(homeDir(), "go", "src", "github.com", "pankona", "gouse", "gouse"),
+		filepath.Join(homeDir(), "bin", "gouse")); err != nil {
 		log.Fatal(ec.err)
 	}
 

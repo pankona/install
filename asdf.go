@@ -16,6 +16,7 @@ func installAsdf(ctx context.Context) {
 		log.Printf("It seems asdf is already installed since " + asdfInstallDir + " directory exists. skip.")
 		return
 	}
+
 	ec := errContainer{}
 	ec.execCommand(ctx, currentDir,
 		"git", "clone", "https://github.com/asdf-vm/asdf.git", asdfInstallDir, "--branch", asdfVersion)
