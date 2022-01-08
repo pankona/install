@@ -13,11 +13,15 @@ export HISTSIZE=100000
 export HISTFILESIZE=100000
 
 # asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+if [ -f $HOME/.asdf/asdf.sh ]; then
+  source $HOME/.asdf/asdf.sh
+  source $HOME/.asdf/completions/asdf.bash
+fi
 
 # git completion
-. $HOME/go/src/github.com/git/git/contrib/completion/git-completion.bash
+if [ -f $HOME/go/src/github.com/git/git/contrib/completion/git-completion.bash ]; then
+  source $HOME/go/src/github.com/git/git/contrib/completion/git-completion.bash
+fi
 
 alias gst='git status'
 

@@ -39,12 +39,14 @@ func installToolsViaAsdf(ctx context.Context) {
 		{name: "ghq", version: "latest"},
 	}
 
+	asdfExecutable := filepath.Join(homeDir(), ".asdf", "bin", "asdf")
+
 	ec := errContainer{}
 	for _, tool := range tools {
-		ec.execCommand(ctx, currentDir, "asdf", "plugin-add", tool.name)
+		ec.execCommand(ctx, currentDir, asdfExecutable, "plugin-add", tool.name)
 		ec.err = nil // ignore error to ignore "the plugin is already added"
-		ec.execCommand(ctx, currentDir, "asdf", "install", tool.name, tool.version)
-		ec.execCommand(ctx, currentDir, "asdf", "global", tool.name, tool.version)
+		ec.execCommand(ctx, currentDir, asdfExecutable, "install", tool.name, tool.version)
+		ec.execCommand(ctx, currentDir, asdfExecutable, "global", tool.name, tool.version)
 	}
 	if ec.err != nil {
 		log.Fatal(ec.err)
