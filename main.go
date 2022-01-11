@@ -32,6 +32,8 @@ func main() {
 		installDocker(ctx)
 		installDockerCompose(ctx)
 		installPrettier(ctx)
+		installKubectl(ctx)
+		installArgoRollouts(ctx)
 	case *asdf:
 		installAsdf(ctx)
 	case *bashrc:
