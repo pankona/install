@@ -8,17 +8,19 @@ import (
 func main() {
 	ctx := context.Background()
 	var (
-		asdf      = flag.Bool("asdf", false, "install asdf")
-		bashrc    = flag.Bool("bashrc", false, "install bashrc")
-		asdfTools = flag.Bool("asdf-tools", false, "install tools via asdf")
-		ghq       = flag.Bool("ghq", false, "install ghq via asdf")
-		git       = flag.Bool("git", false, "install git")
-		golang    = flag.Bool("golang", false, "install golang")
-		vim       = flag.Bool("vim", false, "install vim")
-		gh        = flag.Bool("gh", false, "install gh")
-		docker    = flag.Bool("docker", false, "install docker")
-		prettier  = flag.Bool("prettier", false, "install prettier")
-		kubectl   = flag.Bool("kubectl", false, "install kubectl")
+		asdf     = flag.Bool("asdf", false, "install asdf")
+		bashrc   = flag.Bool("bashrc", false, "install bashrc")
+		ruby     = flag.Bool("ruby", false, "install ruby via asdf")
+		nodejs   = flag.Bool("nodejs", false, "install nodejs via asdf")
+		yarn     = flag.Bool("yarn", false, "install yarn via asdf")
+		ghq      = flag.Bool("ghq", false, "install ghq via asdf")
+		git      = flag.Bool("git", false, "install git")
+		golang   = flag.Bool("golang", false, "install golang")
+		vim      = flag.Bool("vim", false, "install vim")
+		gh       = flag.Bool("gh", false, "install gh")
+		docker   = flag.Bool("docker", false, "install docker")
+		prettier = flag.Bool("prettier", false, "install prettier")
+		kubectl  = flag.Bool("kubectl", false, "install kubectl")
 	)
 	flag.Parse()
 
@@ -27,9 +29,13 @@ func main() {
 		installAsdf(ctx)
 	case *bashrc:
 		installBashrc(ctx)
-	case *asdfTools:
+	case *ruby:
 		installBuildEssential(ctx)
-		installToolsViaAsdf(ctx)
+		installRuby(ctx)
+	case *nodejs:
+		installNodejs(ctx)
+	case *yarn:
+		installYarn(ctx)
 	case *ghq:
 		installGHQ(ctx)
 	case *git:

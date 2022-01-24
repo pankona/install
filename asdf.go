@@ -53,6 +53,63 @@ func installToolsViaAsdf(ctx context.Context) {
 	log.Printf("installing tools via asdf succeeded")
 }
 
+func installRuby(ctx context.Context) {
+	tools := []tool{
+		{name: "ruby", version: "3.1.0"},
+	}
+	ec := errContainer{}
+	for _, tool := range tools {
+		ec.execCommand(ctx, currentDir, "asdf", "plugin-add", tool.name)
+		ec.err = nil // ignore error to ignore "the plugin is already added"
+		ec.execCommand(ctx, currentDir, "asdf", "install", tool.name, tool.version)
+		ec.execCommand(ctx, currentDir, "asdf", "global", tool.name, tool.version)
+	}
+	if ec.err != nil {
+		log.Fatal(ec.err)
+	}
+
+	log.Printf("installing ruby via asdf succeeded")
+
+}
+
+func installNodejs(ctx context.Context) {
+	tools := []tool{
+		{name: "nodejs", version: "16.13.0"},
+	}
+	ec := errContainer{}
+	for _, tool := range tools {
+		ec.execCommand(ctx, currentDir, "asdf", "plugin-add", tool.name)
+		ec.err = nil // ignore error to ignore "the plugin is already added"
+		ec.execCommand(ctx, currentDir, "asdf", "install", tool.name, tool.version)
+		ec.execCommand(ctx, currentDir, "asdf", "global", tool.name, tool.version)
+	}
+	if ec.err != nil {
+		log.Fatal(ec.err)
+	}
+
+	log.Printf("installing nodejs via asdf succeeded")
+
+}
+
+func installYarn(ctx context.Context) {
+	tools := []tool{
+		{name: "yarn", version: "latest"},
+	}
+	ec := errContainer{}
+	for _, tool := range tools {
+		ec.execCommand(ctx, currentDir, "asdf", "plugin-add", tool.name)
+		ec.err = nil // ignore error to ignore "the plugin is already added"
+		ec.execCommand(ctx, currentDir, "asdf", "install", tool.name, tool.version)
+		ec.execCommand(ctx, currentDir, "asdf", "global", tool.name, tool.version)
+	}
+	if ec.err != nil {
+		log.Fatal(ec.err)
+	}
+
+	log.Printf("installing yarn via asdf succeeded")
+
+}
+
 func installGHQ(ctx context.Context) {
 	tools := []tool{
 		{name: "ghq", version: "latest"},
