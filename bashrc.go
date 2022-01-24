@@ -19,6 +19,14 @@ func installBashrc(ctx context.Context) {
 		log.Fatalf("failed to write mybashrc: %v", err)
 	}
 
+	_, err := os.Stat(filepath.Join(homeDir, ".bashrc"))
+	if err != nil {
+		// .bashrc is missing. create empty file
+		if err := os.WriteFile(filepath.Join(homeDir, ".bashrc"), nil, 0644); err != nil {
+			log.Fatalf("failed to generate .bashrc: %v", err)
+		}
+	}
+
 	cmd := exec.CommandContext(ctx, "grep", "mybashrc", filepath.Join(homeDir, ".bashrc"))
 	if err := cmd.Run(); err == nil {
 		// grep returned 0. It means .bashrc already includes mybashrc
