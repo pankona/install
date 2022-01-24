@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-V="0.0.10"
+V="0.0.11"
 
 mkdir /tmp/install
 cd /tmp/install
@@ -12,6 +12,7 @@ tar zxf install_${V}_Linux_x86_64.tar.gz
 ./install -bashrc
 source ~/.bashrc
 # ./install -asdf-tools
+./install -ghq
 ./install -git
 ./install -golang
 # ./install -vim

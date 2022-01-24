@@ -11,6 +11,7 @@ func main() {
 		asdf      = flag.Bool("asdf", false, "install asdf")
 		bashrc    = flag.Bool("bashrc", false, "install bashrc")
 		asdfTools = flag.Bool("asdf-tools", false, "install tools via asdf")
+		ghq       = flag.Bool("ghq", false, "install ghq via asdf")
 		git       = flag.Bool("git", false, "install git")
 		golang    = flag.Bool("golang", false, "install golang")
 		vim       = flag.Bool("vim", false, "install vim")
@@ -29,6 +30,8 @@ func main() {
 	case *asdfTools:
 		installBuildEssential(ctx)
 		installToolsViaAsdf(ctx)
+	case *ghq:
+		installGHQ(ctx)
 	case *git:
 		installGitConfig(ctx)
 		installGit(ctx)
