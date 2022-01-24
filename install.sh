@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-V="0.0.12"
+V="0.0.13"
 
 mkdir /tmp/install
 cd /tmp/install
