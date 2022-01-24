@@ -37,13 +37,13 @@ func main() {
 		installGo(ctx)
 		installGoImports(ctx)
 	case *vim:
-		installVim(ctx)
+		installVim(ctx) // apt
 		installVimrc(ctx)
-		installAg(ctx)
+		installAg(ctx) // apt
 	case *gh:
-		installGitHubCLI(ctx)
+		installGitHubCLI(ctx) // apt
 	case *docker:
-		installDocker(ctx)
+		installDocker(ctx) // apt
 		installDockerCompose(ctx)
 	case *prettier:
 		installPrettier(ctx)
