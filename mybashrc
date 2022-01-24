@@ -24,6 +24,7 @@ if [ -f $HOME/go/src/github.com/git/git/contrib/completion/git-completion.bash ]
 fi
 
 alias gst='git status'
+alias ls='ls --color'
 
 chq() {
   cd "$(ghq list -p | fzf)"
@@ -37,4 +38,3 @@ if [ -f ~/.config/gh/hosts.yml ]; then
 fi
 
 PATH="$HOME/bin:$HOME/go/bin:$PATH"
-

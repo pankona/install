@@ -19,8 +19,8 @@ asdf update --head # to support asdf plugin-add in alpine
 ./install -ghq
 ./install -git
 ./install -golang
-# ./install -vim
-# ./install -gh
+./install -vim
+./install -gh
 # ./install -docker
 ./install -prettier
 # ./install -kubectl
