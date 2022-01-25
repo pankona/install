@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-V="0.0.16"
+V="0.0.17"
 
 rm -rf /tmp/install-${V}
 mkdir /tmp/install-${V}
@@ -11,12 +11,13 @@ tar zxf install_${V}_Linux_x86_64.tar.gz
 
 ./install -asdf
 ./install -bashrc
-source ~/.bashrc
-asdf update --head # to support asdf plugin-add in alpine
+source ~/mybashrc
+# asdf update --head # to support asdf plugin-add in alpine
 # ./install -ruby
 ./install -nodejs
 ./install -yarn
 ./install -ghq
+./install -fzf
 ./install -git
 ./install -golang
 ./install -vim

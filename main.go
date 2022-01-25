@@ -10,6 +10,7 @@ func main() {
 	var (
 		asdf     = flag.Bool("asdf", false, "install asdf")
 		bashrc   = flag.Bool("bashrc", false, "install bashrc")
+		fzf      = flag.Bool("fzf", false, "install fzf")
 		ruby     = flag.Bool("ruby", false, "install ruby via asdf")
 		nodejs   = flag.Bool("nodejs", false, "install nodejs via asdf")
 		yarn     = flag.Bool("yarn", false, "install yarn via asdf")
@@ -29,6 +30,8 @@ func main() {
 		installAsdf(ctx)
 	case *bashrc:
 		installBashrc(ctx)
+	case *fzf:
+		installFzf(ctx)
 	case *ruby:
 		installBuildEssential(ctx)
 		installRuby(ctx)
