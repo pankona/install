@@ -11,7 +11,7 @@ tar zxf install_${V}_Linux_x86_64.tar.gz
 
 ./install -asdf
 ./install -bashrc
-source ~/.bashrc
+source ~/mybashrc
 # asdf update --head # to support asdf plugin-add in alpine
 # ./install -ruby
 ./install -nodejs
