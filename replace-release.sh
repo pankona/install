@@ -1,6 +1,7 @@
-#!/bin/bash -e
+#!/bin/bash -eux
 
-git tag --delete v0.0.17
-git tag v0.0.17
-git push origin v0.0.17 -f
+git tag --delete $1
+git tag $1
+git push origin $1 -f
+gh release delete $1 --repo pankona/install || true
 make release
