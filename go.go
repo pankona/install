@@ -34,6 +34,12 @@ func installGouse(ctx context.Context) {
 }
 
 func installGo(ctx context.Context) {
+	_, err := os.Stat(filepath.Join(homeDir(), "go", "bin", "go"+goVersion))
+	if err == nil {
+		log.Printf("It seems go%s is already installed. skip.", goVersion)
+		return
+	}
+
 	ec := errContainer{}
 	_ = withTempDir("install_go", func(workingDir string) error {
 		ec.execCommand(ctx, workingDir, "wget", "https://go.dev/dl/go"+goVersion+".linux-amd64.tar.gz")
