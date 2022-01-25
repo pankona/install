@@ -10,6 +10,7 @@ func main() {
 	var (
 		asdf     = flag.Bool("asdf", false, "install asdf")
 		bashrc   = flag.Bool("bashrc", false, "install bashrc")
+		apttools = flag.Bool("apttools", false, "install tools via apt")
 		fzf      = flag.Bool("fzf", false, "install fzf")
 		ruby     = flag.Bool("ruby", false, "install ruby via asdf")
 		nodejs   = flag.Bool("nodejs", false, "install nodejs via asdf")
@@ -30,10 +31,12 @@ func main() {
 		installAsdf(ctx)
 	case *bashrc:
 		installBashrc(ctx)
+	case *apttools:
+		installAptTools(ctx) // apt
 	case *fzf:
 		installFzf(ctx)
 	case *ruby:
-		installBuildEssential(ctx)
+		installBuildEssential(ctx) // apt
 		installRuby(ctx)
 	case *nodejs:
 		installNodejs(ctx)
@@ -51,7 +54,6 @@ func main() {
 	case *vim:
 		installVim(ctx) // apt
 		installVimrc(ctx)
-		installAg(ctx) // apt
 	case *gh:
 		installGitHubCLI(ctx) // apt
 	case *docker:
