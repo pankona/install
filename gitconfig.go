@@ -19,6 +19,7 @@ func installGit(ctx context.Context) {
 	ec := errContainer{}
 
 	ec.execCommand(ctx, currentDir, "ghq", "get", "git/git")
+	ec.execCommand(ctx, filepath.Join(homeDir(), "sudo", "apt", "install", "curl", "tcl", "gettext", "-y"))
 	ec.execCommand(ctx, filepath.Join(homeDir(), "go", "src", "github.com", "git", "git"), "make", "-j8", "install")
 	if ec.err != nil {
 		log.Fatal(ec.err)
