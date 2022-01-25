@@ -17,6 +17,7 @@ asdf update --head # to support asdf plugin-add in alpine
 ./install -nodejs
 ./install -yarn
 ./install -ghq
+./install -fzf
 ./install -git
 ./install -golang
 ./install -vim
