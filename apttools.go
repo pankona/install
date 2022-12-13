@@ -12,6 +12,8 @@ func installAptTools(ctx context.Context) {
 	ec.execCommand(ctx, currentDir, "sudo", "apt", "install", "-y", "silversearcher-ag")
 	ec.execCommand(ctx, currentDir, "sudo", "apt", "install", "-y", "less")
 	ec.execCommand(ctx, currentDir, "sudo", "apt", "install", "-y", "locales-all")
+	// https: //github.com/cli/cli/discussions/6222
+	ec.execCommand(ctx, currentDir, "sudo", "apt-key", "adv", "--keyserver", "keyserver.ubuntu.com", "--recv-keys", "23F3D4EA75716059")
 	if ec.err != nil {
 		log.Fatal(ec.err)
 	}
