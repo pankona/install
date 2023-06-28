@@ -14,6 +14,7 @@ func installAptTools(ctx context.Context) {
 	ec.execCommand(ctx, currentDir, "sudo", "apt", "install", "-y", "locales-all")
 	ec.execCommand(ctx, currentDir, "sudo", "apt", "install", "-y", "unzip")
 	ec.execCommand(ctx, currentDir, "sudo", "apt", "install", "-y", "libssl-dev")
+	ec.execCommand(ctx, currentDir, "sudo", "apt", "install", "-y", "libz-dev")
 	// https: //github.com/cli/cli/discussions/6222
 	ec.execCommand(ctx, currentDir, "sudo", "apt-key", "adv", "--keyserver", "keyserver.ubuntu.com", "--recv-keys", "23F3D4EA75716059")
 	if ec.err != nil {
