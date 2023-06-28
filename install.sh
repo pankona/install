@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-V="0.0.23"
+V="0.0.24"
 
 rm -rf /tmp/install-${V}
 mkdir /tmp/install-${V}
