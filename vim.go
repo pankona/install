@@ -9,8 +9,9 @@ import (
 func installVim(ctx context.Context) {
 	ec := errContainer{}
 
-	ec.execCommand(ctx, currentDir, "sudo", "-S", "apt", "update")
-	ec.execCommand(ctx, currentDir, "sudo", "-S", "apt", "install", "vim", "-y")
+	ec.execCommand(ctx, currentDir, "ghq", "get", "vim/vim")
+	ec.execCommand(ctx, filepath.Join(homeDir(), "go", "src", "github.com", "vim", "vim"), "make")
+	ec.execCommand(ctx, filepath.Join(homeDir(), "go", "src", "github.com", "vim", "vim"), "sudo", "make", "install")
 
 	if ec.err != nil {
 		log.Fatal(ec.err)
