@@ -21,6 +21,7 @@ source ~/mybashrc
 ./install -fzf
 ./install -git
 ./install -golang
+./install -deno
 ./install -vim
 ./install -gh
 # ./install -docker

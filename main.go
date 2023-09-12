@@ -18,6 +18,7 @@ func main() {
 		ghq      = flag.Bool("ghq", false, "install ghq via asdf")
 		git      = flag.Bool("git", false, "install git")
 		golang   = flag.Bool("golang", false, "install golang")
+		deno     = flag.Bool("deno", false, "install deno")
 		vim      = flag.Bool("vim", false, "install vim")
 		gh       = flag.Bool("gh", false, "install gh")
 		docker   = flag.Bool("docker", false, "install docker")
@@ -51,6 +52,8 @@ func main() {
 		installGouse(ctx)
 		installGo(ctx)
 		installGoImports(ctx)
+	case *deno:
+		installDeno(ctx)
 	case *vim:
 		installVim(ctx) // apt
 		installVimrc(ctx)
