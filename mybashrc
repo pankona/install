@@ -38,3 +38,6 @@ if [ -f ~/.config/gh/hosts.yml ]; then
 fi
 
 PATH="$HOME/bin:$HOME/go/bin:$PATH"
+
+export DENO_INSTALL="/home/quipper/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
