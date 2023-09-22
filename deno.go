@@ -3,15 +3,18 @@ package main
 import (
 	"context"
 	"log"
-	"os/exec"
+
+	"github.com/mattn/go-pipeline"
 )
 
 func installDeno(ctx context.Context) {
 	// curl -fsSL https://deno.land/x/install/install.sh | sh
-	cmd := exec.CommandContext(ctx, "curl", "-fsSL", "https://deno.land/x/install/install.sh")
-	err := cmd.Run()
+	_, err := pipeline.Output(
+		[]string{"curl", "-fsSL", "https://deno.land/x/install/install.sh"},
+		[]string{"sh"},
+	)
 	if err != nil {
-		log.Fatalf("failed to get kubectl latest version number: %v", err)
+		log.Fatalf("failed install deno: %v", err)
 	}
 
 	log.Printf("installing deno succeeded")
