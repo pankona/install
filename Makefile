@@ -1,6 +1,6 @@
 
 dry-run:
-	goreleaser --skip-publish --rm-dist
+	goreleaser --skip=publish --clean
 
 release:
 	goreleaser --rm-dist
