@@ -16,14 +16,14 @@ source ~/mybashrc
 # asdf update --head # to support asdf plugin-add in alpine
 # ./install -ruby
 ./install -nodejs
-./install -yarn
+# ./install -yarn
 ./install -ghq
 ./install -fzf
 ./install -git
 ./install -golang
 ./install -deno
 ./install -vim
-./install -gh
+#./install -gh
 # ./install -docker
 ./install -prettier
 # ./install -kubectl

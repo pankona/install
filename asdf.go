@@ -32,30 +32,9 @@ type tool struct {
 	version string
 }
 
-func installToolsViaAsdf(ctx context.Context) {
-	tools := []tool{
-		{name: "ruby", version: "3.1.0"},
-		{name: "nodejs", version: "16.13.0"},
-		{name: "yarn", version: "latest"},
-		{name: "ghq", version: "latest"},
-	}
-	ec := errContainer{}
-	for _, tool := range tools {
-		ec.execCommand(ctx, currentDir, "asdf", "plugin-add", tool.name)
-		ec.err = nil // ignore error to ignore "the plugin is already added"
-		ec.execCommand(ctx, currentDir, "asdf", "install", tool.name, tool.version)
-		ec.execCommand(ctx, currentDir, "asdf", "global", tool.name, tool.version)
-	}
-	if ec.err != nil {
-		log.Fatal(ec.err)
-	}
-
-	log.Printf("installing tools via asdf succeeded")
-}
-
 func installRuby(ctx context.Context) {
 	tools := []tool{
-		{name: "ruby", version: "3.1.0"},
+		{name: "ruby", version: "latest"},
 	}
 	ec := errContainer{}
 	for _, tool := range tools {
@@ -74,7 +53,7 @@ func installRuby(ctx context.Context) {
 
 func installNodejs(ctx context.Context) {
 	tools := []tool{
-		{name: "nodejs", version: "16.13.0"},
+		{name: "nodejs", version: "latest"},
 	}
 	ec := errContainer{}
 	for _, tool := range tools {
