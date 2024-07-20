@@ -4,17 +4,19 @@ import (
 	"context"
 	"log"
 	"path/filepath"
+
+	"github.com/mattn/go-pipeline"
 )
 
 func installDein(ctx context.Context) {
 	// 以下のコマンドを実行する
 	// sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
-	ec := errContainer{}
-
-	ec.execCommand(ctx, currentDir, "sh", "-c", "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)")
-
-	if ec.err != nil {
-		log.Fatal(ec.err)
+	_, err := pipeline.Output(
+		[]string{"curl", "-fsSL", "https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh"},
+		[]string{"sh"},
+	)
+	if err != nil {
+		log.Fatalf("failed install dein: %v", err)
 	}
 
 	log.Printf("installing dein succeeded")
