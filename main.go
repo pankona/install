@@ -55,6 +55,7 @@ func main() {
 	case *deno:
 		installDeno(ctx)
 	case *vim:
+		installDein(ctx)
 		installVim(ctx) // apt
 		installVimrc(ctx)
 	case *gh:

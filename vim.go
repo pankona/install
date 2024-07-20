@@ -6,6 +6,20 @@ import (
 	"path/filepath"
 )
 
+func installDein(ctx context.Context) {
+	// 以下のコマンドを実行する
+	// sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
+	ec := errContainer{}
+
+	ec.execCommand(ctx, currentDir, "sh", "-c", "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)")
+
+	if ec.err != nil {
+		log.Fatal(ec.err)
+	}
+
+	log.Printf("installing dein succeeded")
+}
+
 func installVim(ctx context.Context) {
 	ec := errContainer{}
 
