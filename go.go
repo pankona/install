@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-const goVersion = "1.22.5"
+const goVersion = "1.23.1"
 
 func installGouse(ctx context.Context) {
 	ec := errContainer{}
