@@ -12,11 +12,8 @@ export HISTCONTROL=ignoreboth:erasedups
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 
-# asdf
-if [ -f $HOME/.asdf/asdf.sh ]; then
-  source $HOME/.asdf/asdf.sh
-  source $HOME/.asdf/completions/asdf.bash
-fi
+# asdf shims for v0.18.0+ binary-based approach (no longer sources shell scripts)
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # git completion
 if [ -f $HOME/go/src/github.com/git/git/contrib/completion/git-completion.bash ]; then

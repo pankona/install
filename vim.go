@@ -8,10 +8,14 @@ import (
 
 func installVim(ctx context.Context) {
 	ec := errContainer{}
+	vimDir := filepath.Join(homeDir(), "go", "src", "github.com", "vim", "vim")
 
 	ec.execCommand(ctx, currentDir, "ghq", "get", "vim/vim")
-	ec.execCommand(ctx, filepath.Join(homeDir(), "go", "src", "github.com", "vim", "vim"), "make")
-	ec.execCommand(ctx, filepath.Join(homeDir(), "go", "src", "github.com", "vim", "vim"), "sudo", "make", "install")
+	
+	// Configure to install in $HOME/bin instead of system-wide /usr/local
+	ec.execCommand(ctx, vimDir, "./configure", "--prefix="+homeDir())
+	ec.execCommand(ctx, vimDir, "make")
+	ec.execCommand(ctx, vimDir, "make", "install")
 
 	if ec.err != nil {
 		log.Fatal(ec.err)

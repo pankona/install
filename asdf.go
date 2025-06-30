@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-const asdfVersion = "v0.9.0"
+const asdfVersion = "v0.18.0"
 
 func installAsdf(ctx context.Context) {
 	asdfInstallDir := filepath.Join(homeDir(), ".asdf")
@@ -18,8 +18,20 @@ func installAsdf(ctx context.Context) {
 	}
 
 	ec := errContainer{}
+
 	ec.execCommand(ctx, currentDir,
 		"git", "clone", "https://github.com/asdf-vm/asdf.git", asdfInstallDir, "--branch", asdfVersion)
+
+	// v0.18.0+ requires building binary instead of sourcing shell scripts
+	ec.execCommand(ctx, asdfInstallDir, "make")
+
+	binDir := filepath.Join(homeDir(), "bin")
+	os.MkdirAll(binDir, 0755)
+
+	asdfBinary := filepath.Join(asdfInstallDir, "asdf")
+	asdfBinaryDest := filepath.Join(binDir, "asdf")
+	ec.execCommand(ctx, currentDir, "cp", asdfBinary, asdfBinaryDest)
+
 	if ec.err != nil {
 		log.Fatal(ec.err)
 	}
